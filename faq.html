@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — StudentSites</title>
+  <meta name="description" content="Answers to common questions about StudentSites — how ordering works, revisions, domains, payment, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink:#16121F; --ink-2:#5C5470; --ink-3:#9C94AE;
+      --surface:#FAF9FC; --surface-2:#F0EDF9;
+      --white:#FFFFFF; --border:#E2DBEF; --border-2:#CBC0E0;
+      --primary:#4333CC; --primary-h:#3626BB; --primary-light:#EDEAFB; --primary-glow:rgba(67,51,204,.18);
+      --accent:#F0522D;
+      --fd:'Instrument Serif',Georgia,serif;
+      --fb:'Plus Jakarta Sans',system-ui,sans-serif;
+      --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-2xl:24px; --r-full:9999px;
+      --sh-sm:0 1px 3px rgba(22,18,31,.06);
+      --dur-f:150ms; --dur-b:220ms; --ease:cubic-bezier(0.16,1,0.3,1);
+      --max:1140px; --nav-h:64px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--fb);font-size:1rem;line-height:1.7;color:var(--ink);background:var(--surface);-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    button{font-family:inherit;cursor:pointer;border:none;background:none}
+    ul{list-style:none}
+
+    .skip{position:absolute;top:-9999px;left:1rem;z-index:9999;padding:.75rem 1.5rem;background:var(--primary);color:#fff;font-size:.875rem;font-weight:600;border-radius:var(--r-md)}
+    .skip:focus{top:1rem}
+    :focus-visible{outline:2px solid var(--primary);outline-offset:3px;border-radius:var(--r-sm)}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:44px;padding:0 1.5rem;font-family:var(--fb);font-size:.875rem;font-weight:600;border-radius:var(--r-full);touch-action:manipulation;transition:background var(--dur-f) var(--ease),color var(--dur-f) var(--ease),box-shadow var(--dur-f) var(--ease),transform var(--dur-f) var(--ease);cursor:pointer;white-space:nowrap}
+    .btn:active{transform:scale(.97)}
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-primary:hover{background:var(--primary-h);box-shadow:0 4px 16px var(--primary-glow)}
+    .btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--border-2)}
+    .btn-outline:hover{border-color:var(--primary);color:var(--primary);background:var(--primary-light)}
+    .btn-lg{min-height:52px;padding:0 2rem;font-size:1rem}
+
+    .container{width:100%;max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+    @media(max-width:640px){.container{padding:0 1rem}}
+
+    /* Nav */
+    .nav{position:sticky;top:0;z-index:100;height:var(--nav-h);background:rgba(250,249,252,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav-in{display:flex;align-items:center;justify-content:space-between;height:100%}
+    .nav-logo{display:flex;align-items:center;gap:.5rem;font-family:var(--fd);font-size:1.25rem;color:var(--ink)}
+    .nav-mark{width:32px;height:32px;background:var(--primary);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center}
+    .nav-links{display:flex;align-items:center;gap:.25rem}
+    .nav-links a{display:flex;align-items:center;min-height:44px;padding:0 .75rem;font-size:.875rem;font-weight:500;color:var(--ink-2);border-radius:var(--r-md);touch-action:manipulation;transition:color var(--dur-f),background var(--dur-f)}
+    .nav-links a:hover{color:var(--ink);background:var(--surface-2)}
+    .nav-links a.active{color:var(--primary);background:var(--primary-light)}
+    .nav-act{display:flex;align-items:center;gap:.75rem}
+    .burger{display:none;align-items:center;justify-content:center;width:44px;height:44px;border-radius:var(--r-md);color:var(--ink);touch-action:manipulation;transition:background var(--dur-f)}
+    .burger:hover,.burger[aria-expanded=true]{background:var(--surface-2)}
+    .mob{display:none;position:fixed;inset:var(--nav-h) 0 0;background:var(--surface);z-index:99;padding:1.5rem;flex-direction:column;gap:.5rem;border-top:1px solid var(--border)}
+    .mob.open{display:flex}
+    .mob a{display:flex;align-items:center;min-height:48px;padding:0 1rem;font-size:1rem;font-weight:500;color:var(--ink-2);border-radius:var(--r-lg);touch-action:manipulation;transition:color var(--dur-f),background var(--dur-f)}
+    .mob a:hover{color:var(--ink);background:var(--surface-2)}
+    .mob .btn{width:100%;margin-top:1rem}
+    @media(max-width:768px){.nav-links,.nav-act .btn{display:none}.burger{display:flex}}
+
+    /* Hero */
+    .hero{padding:5rem 0 3rem;background:var(--white);border-bottom:1px solid var(--border)}
+    @media(max-width:768px){.hero{padding:3rem 0 2.5rem}}
+    .breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.875rem;color:var(--ink-3);margin-bottom:1.5rem}
+    .breadcrumb a{color:var(--primary);font-weight:500;touch-action:manipulation}
+    .breadcrumb a:hover{text-decoration:underline}
+    .breadcrumb-sep{color:var(--border-2)}
+    .hero-h{font-family:var(--fd);font-size:clamp(2.5rem,5vw,4rem);font-weight:400;line-height:1.1;color:var(--ink);margin-bottom:1rem}
+    .hero-h em{font-style:italic;color:var(--primary)}
+    .hero-sub{font-size:1.125rem;color:var(--ink-2);max-width:540px;line-height:1.7}
+
+    /* FAQ content */
+    .faq-body{padding:4rem 0 6rem}
+    .faq-layout{display:grid;grid-template-columns:220px 1fr;gap:4rem;align-items:start}
+    @media(max-width:900px){.faq-layout{grid-template-columns:1fr}}
+
+    /* Sticky sidebar */
+    .faq-nav{position:sticky;top:calc(var(--nav-h) + 2rem)}
+    @media(max-width:900px){.faq-nav{position:static;margin-bottom:2rem}}
+    .faq-nav-title{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:1rem}
+    .faq-nav-links{display:flex;flex-direction:column;gap:.25rem}
+    @media(max-width:900px){.faq-nav-links{flex-direction:row;flex-wrap:wrap;gap:.5rem}}
+    .faq-nav-link{display:flex;align-items:center;min-height:36px;padding:.25rem .75rem;font-size:.875rem;font-weight:500;color:var(--ink-2);border-radius:var(--r-lg);touch-action:manipulation;transition:color var(--dur-f),background var(--dur-f)}
+    .faq-nav-link:hover{color:var(--primary);background:var(--primary-light)}
+    .faq-nav-link.active{color:var(--primary);background:var(--primary-light);font-weight:600}
+
+    /* FAQ groups */
+    .faq-groups{display:flex;flex-direction:column;gap:3rem}
+    .faq-group-title{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+
+    .flist{display:flex;flex-direction:column;gap:.5rem}
+    .fitem{background:#fff;border:1px solid var(--border);border-radius:var(--r-xl);overflow:hidden;transition:border-color var(--dur-f)}
+    .fitem:has(.ftrig[aria-expanded=true]){border-color:var(--primary)}
+    .ftrig{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;font-size:1rem;font-weight:600;color:var(--ink);text-align:left;background:none;border:none;cursor:pointer;touch-action:manipulation;min-height:56px;transition:color var(--dur-f)}
+    .ftrig:hover,.ftrig[aria-expanded=true]{color:var(--primary)}
+    .fchev{flex-shrink:0;width:20px;height:20px;color:var(--ink-3);transition:transform var(--dur-b) var(--ease)}
+    .ftrig[aria-expanded=true] .fchev{transform:rotate(180deg);color:var(--primary)}
+    .fpanel{padding:0 1.5rem 1.25rem;font-size:1rem;color:var(--ink-2);line-height:1.7}
+    .fpanel[hidden]{display:none}
+    .fpanel a{color:var(--primary);font-weight:500}
+    .fpanel a:hover{text-decoration:underline}
+
+    /* Still have questions */
+    .contact-box{background:var(--primary);border-radius:var(--r-2xl);padding:2.5rem;text-align:center;margin-top:3rem;position:relative;overflow:hidden}
+    .contact-box-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 0 50%,rgba(255,255,255,.06) 0%,transparent 60%);pointer-events:none}
+    .contact-h{font-family:var(--fd);font-size:1.75rem;font-weight:400;color:#fff;margin-bottom:.75rem;position:relative}
+    .contact-h em{font-style:italic;color:rgba(255,255,255,.6)}
+    .contact-sub{font-size:1rem;color:rgba(255,255,255,.7);margin-bottom:1.5rem;position:relative}
+    .contact-btns{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.75rem;position:relative}
+    .btn-white{background:#fff;color:var(--primary)}
+    .btn-white:hover{background:var(--surface-2)}
+    .btn-ghost-w{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.25)}
+    .btn-ghost-w:hover{background:rgba(255,255,255,.22)}
+
+    /* Footer */
+    .footer{background:var(--ink);padding:1.75rem 0}
+    .flogo-m{width:32px;height:32px;background:var(--primary);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center}
+    .fsoc{display:flex;gap:.75rem}
+    .fsoc-a{display:flex;align-items:center;justify-content:center;width:36px;height:36px;background:rgba(255,255,255,.08);border-radius:var(--r-md);color:rgba(255,255,255,.6);touch-action:manipulation;transition:background var(--dur-f),color var(--dur-f)}
+    .fsoc-a:hover{background:rgba(255,255,255,.16);color:#fff}
+
+    @media(prefers-reduced-motion:reduce){
+      .fchev{transition:none}
+      html{scroll-behavior:auto}
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to main content</a>
+
+<nav class="nav" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-in">
+      <a href="index.html" class="nav-logo" aria-label="StudentSites homepage">
+        <div class="nav-mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M13 5.5C13 4.12 11.88 3 10.5 3H7.5C6.12 3 5 4.12 5 5.5C5 6.88 6.12 8 7.5 8H10.5C11.88 8 13 9.12 13 10.5C13 11.88 11.88 13 10.5 13H7.5C6.12 13 5 11.88 5 10.5" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        StudentSites
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html#how">How it works</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="faq.html" class="active">FAQ</a></li>
+      </ul>
+      <div class="nav-act">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeekD6VoQFlO7QCdew0rUeE_NM6pRvVdLiqLHEkGiOEM8Hkhw/viewform?usp=dialog" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Order my site</a>
+        <button class="burger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mob-nav">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><line x1="3" y1="7" x2="19" y2="7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="3" y1="11" x2="19" y2="11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="3" y1="15" x2="19" y2="15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<nav id="mob-nav" class="mob" aria-label="Mobile navigation" hidden>
+  <a href="index.html#how">How it works</a>
+  <a href="index.html#pricing">Pricing</a>
+  <a href="faq.html">FAQ</a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeekD6VoQFlO7QCdew0rUeE_NM6pRvVdLiqLHEkGiOEM8Hkhw/viewform?usp=dialog" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">Order my site</a>
+</nav>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <span aria-current="page">FAQ</span>
+      </div>
+      <h1 class="hero-h">Frequently asked<br><em>questions</em></h1>
+      <p class="hero-sub">Everything you need to know about ordering, delivery, revisions, and hosting. Can't find the answer? <a href="mailto:studentsitessupport@gmail.com" style="color:var(--primary);font-weight:600">Email us →</a></p>
+    </div>
+  </section>
+
+  <!-- BODY -->
+  <div class="faq-body">
+    <div class="container">
+      <div class="faq-layout">
+
+        <!-- Sidebar nav -->
+        <aside class="faq-nav" aria-label="FAQ categories">
+          <p class="faq-nav-title">Jump to</p>
+          <nav class="faq-nav-links">
+            <a href="#ordering" class="faq-nav-link active">Ordering</a>
+            <a href="#delivery" class="faq-nav-link">Delivery</a>
+            <a href="#revisions" class="faq-nav-link">Revisions</a>
+            <a href="#hosting" class="faq-nav-link">Hosting &amp; domains</a>
+            <a href="#payment" class="faq-nav-link">Payment</a>
+            <a href="#updates" class="faq-nav-link">Updates</a>
+          </nav>
+        </aside>
+
+        <!-- FAQ groups -->
+        <div class="faq-groups">
+
+          <!-- Ordering -->
+          <section id="ordering" aria-labelledby="g-ordering">
+            <p id="g-ordering" class="faq-group-title">Ordering</p>
+            <div class="flist">
+              <div class="fitem">
+                <button class="ftrig" aria-expanded="false" aria-controls="o1" id="ob1">How do I place an order?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div id="o1" class="fpanel" hidden role="region" aria-labelledby="ob1">Fill out our <a href="https://docs.google.com/forms/d/e/1FAIpQLSeekD6VoQFlO7QCdew0rUeE_NM6pRvVdLiqLHEkGiOEM8Hkhw/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">order form</a> — it takes about 5–7 minutes. Tell us about your activities, projects, and goals, and choose your package. We'll send a payment link and get started once you've paid.</div>
+              </div>
+              <div class="fitem">
+                <button class="ftrig" aria-expanded="false" aria-controls="o2" id="ob2">What information do I need to provide?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div id="o2" class="fpanel" hidden role="region" aria-labelledby="ob2">The form covers everything: your bio, activities, awards, work/volunteer experience, skills, projects (with optional YouTube links), social media profiles, and design preferences. If you have a photo you'd like included, you can upload it in the form too.</div>
+              </div>
+              <div class="fitem">
+                <button class="ftrig" aria-expanded="false" aria-controls="o3" id="ob3">Which plan should I choose?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div id="o3" class="fpanel" hidden role="region" aria-labelledby="ob3"><strong>Simple ($38)</strong> — best if you want a single clean page to list your background and skills. Great for high school students applying to college.<br><br><strong>Recommended ($56)</strong> — most popular. A 3-page site with dedicated project showcase. Perfect for college students applying to internships.<br><br><strong>Premium ($74)</strong> — for students with a lot to show: up to 5 pages, scroll animations, and guides for getting a custom domain.<br><br>All prices reflect our current launch sale (25% off).</div>
+              </div>
+              <div class="fitem">
+                <button class="ftrig" aria-expanded="false" aria-controls="o4" id="ob4">Do I need to know how to code?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div id="o4" class="fpanel" hidden role="region" aria-labelledby="ob4">Not at all. You fill out the form, we build everything, and you get a step-by-step guide with screenshots for putting it online. No coding experience needed at any point.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Delivery -->
+          <section id="delivery" aria-labelledby="g-delivery">
+            <p id="g-delivery" class="faq-group-title">Delivery</p>
+            <div class="flist">
+              <div class="fitem">
+                <button class="ftrig" aria-expanded="false" aria-controls="d1" id="db1">How do I get my site after ordering?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div id="d1" class="fpanel" hidden role="region" aria-labelledby="db1">We'll email you the finished files (HTML, CSS, JS) within 3–5 business days of receiving payment. The email also includes your step-by-step deployment guide for GitHub Pages.</div>
+              </div>
+              <div class="fitem">
+                <button class="ftrig" aria-expanded="false" aria-controls="d2" id="db2">How long does it take?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div id="d2" class="fpanel" hidden role="region" aria-labelledby="db2">3–5 business days after payment is confirmed. During peak season (August–November and January–March) it may be closer to 5 days. If you have a specific deadline, mention it in the "Additional notes" field of the order form and we'll do our best to accommodate.</div>
+              </div>
+              <div class="fitem">
+                <button class="ftrig" aria-expanded="false" aria-controls="d3" id="db3">What exactly do I receive?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div id="d3" class="fpanel" hidden role="region" aria-labelledby="db3">You receive a ZIP file containing all website files (HTML, CSS, JavaScript), a plain text delivery note with deployment instructions, and — depending on your plan — a GitHub Pages deploy guide, GitHub Education Pack guide, and/or custom domain setup guide.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Revisions -->
+          <section id="revisions" aria-labelledby="g-revisions">
+            <p id="g-revisions" class="faq-group-title">Revisions</p>
+            <div class="flist">
+              <div class="fitem">
+                <button class="ftrig" aria-expanded="false" aria-controls="r1" id="rb1">What counts as a revision?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div id="r1" class="fpanel" hidden role="region" aria-labelledby="rb1">A revision is a change to existing content: updating text, swapping a project description, adjusting colors within your chosen scheme, correcting a typo, or changing a link. Adding entirely new pages, new sections, or requesting a redesign is not included in revisions but can be quoted separately.</div>
+              </div>
+              <div class="fitem">
+                <button class="ftrig" aria-expanded="false" aria-controls="r2" id="rb2">How do I request a revision?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div id="r2" class="fpanel" hidden role="region" aria-labelledby="rb2">Reply to the delivery email with your requested changes clearly listed. We'll turn around revisions within 2–3 business days. Each order includes 5 free revision rounds.</div>
+              </div>
+              <div class="fitem">
+                <button class="ftrig" aria-expanded="false" aria-controls="r3" id="rb3">Do revisions expire?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div id="r3" class="fpanel" hidden role="region" aria-labelledby="rb3">Your 5 free revisions are valid for 60 days from delivery. After that, content updates fall under the Quarterly Update Service ($20/quarter) or can be quoted individually.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Hosting & Domains -->
+          <section id="hosting" aria-labelledby="g-hosting">
+            <p id="g-hosting" class="faq-group-title">Hosting &amp; domains</p>
+            <div class="flist">
+              <div class="fitem">
+                <button class="ftrig" aria-expanded="false" aria-controls="h1" id="hb1">How do I host the site for free?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div id="h1" class="fpanel" hidden role="region" aria-labelledby="hb1">We recommend GitHub Pages — it's completely free and reliable. Your site will live at <code style="background:var(--surface-2);padding:.1rem .3rem;border-radius:4px;font-size:.9em">yourname.github.io</code>. The deployment guide we include walks you through every step, even if you've never used GitHub before.</div>
+              </div>
+              <div class="fitem">
+                <button class="ftrig" aria-expanded="false" aria-controls="h2" id="hb2">Can I get a custom domain (like myname.com)?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div id="h2" class="fpanel" hidden role="region" aria-labelledby="hb2">Yes. Recommended and Premium plans include two guides:<br><br><strong>GitHub Education Pack</strong> — if you have a <code style="background:var(--surface-2);padding:.1rem .3rem;border-radius:4px;font-size:.9em">.edu</code> email, you can get a free <code style="background:var(--surface-2);padding:.1rem .3rem;border-radius:4px;font-size:.9em">.me</code> domain through Namecheap's student offer.<br><br><strong>Custom domain guide</strong> — if you'd rather buy your own <code style="background:var(--surface-2);padding:.1rem .3rem;border-radius:4px;font-size:.9em">.com</code> or <code style="background:var(--surface-2);padding:.1rem .3rem;border-radius:4px;font-size:.9em">.dev</code>, domains typically cost $10–15/year from Namecheap or Cloudflare. We walk you through setup step by step.<br><br>We don't resell or register domains ourselves.</div>
+              </div>
+              <div class="fitem">
+                <button class="ftrig" aria-expanded="false" aria-controls="h3" id="hb3">Will there be ongoing costs after purchase?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div id="h3" class="fpanel" hidden role="region" aria-labelledby="hb3">None from us — you pay once and own the code. GitHub Pages hosting is free forever. The only possible ongoing cost is if you choose a custom domain from a registrar (~$10–15/yr), which is entirely optional.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Payment -->
+          <section id="payment" aria-labelledby="g-payment">
+            <p id="g-payment" class="faq-group-title">Payment</p>
+            <div class="flist">
+              <div class="fitem">
+                <button class="ftrig" aria-expanded="false" aria-controls="p1" id="pb1">How do I pay?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div id="p1" class="fpanel" hidden role="region" aria-labelledby="pb1">After you submit the order form, we'll email you a Stripe payment link. We accept all major credit and debit cards. Work begins once payment is confirmed.</div>
+              </div>
+              <div class="fitem">
+                <button class="ftrig" aria-expanded="false" aria-controls="p2" id="pb2">Do you offer refunds?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div id="p2" class="fpanel" hidden role="region" aria-labelledby="pb2">If we haven't started work yet, we'll issue a full refund. Once work has begun, refunds are not available — but we'll use all 5 revision rounds to make sure you're happy with the result. If you have concerns, email us before ordering and we're happy to answer any questions.</div>
+              </div>
+              <div class="fitem">
+                <button class="ftrig" aria-expanded="false" aria-controls="p3" id="pb3">Is the launch sale price permanent?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div id="p3" class="fpanel" hidden role="region" aria-labelledby="pb3">No — the 25% launch discount is available for a limited time while we're just getting started. Once the sale ends, prices will return to $50 / $75 / $99. If you order during the sale, you lock in the discounted price.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Updates -->
+          <section id="updates" aria-labelledby="g-updates">
+            <p id="g-updates" class="faq-group-title">Quarterly updates</p>
+            <div class="flist">
+              <div class="fitem">
+                <button class="ftrig" aria-expanded="false" aria-controls="u1" id="ub1">How does the quarterly update add-on work?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div id="u1" class="fpanel" hidden role="region" aria-labelledby="ub1">Four times a year (January, April, July, October) we'll reach out to collect your latest updates — new projects, changed achievements, or a refreshed bio. We rebuild and send you updated files within 3–5 business days. This is content changes only; full redesigns are not included.</div>
+              </div>
+              <div class="fitem">
+                <button class="ftrig" aria-expanded="false" aria-controls="u2" id="ub2">Can I add updates outside of quarterly windows?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div id="u2" class="fpanel" hidden role="region" aria-labelledby="ub2">Yes — if you need a one-off update outside the quarterly schedule, email us and we can quote a single update. Typically $10–15 depending on the scope of changes.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Still have questions box -->
+          <div class="contact-box">
+            <div class="contact-box-bg" aria-hidden="true"></div>
+            <h2 class="contact-h">Still have <em>questions?</em></h2>
+            <p class="contact-sub">We respond to every email within one business day.</p>
+            <div class="contact-btns">
+              <a href="mailto:studentsitessupport@gmail.com" class="btn btn-white btn-lg">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1.5" y="3.5" width="13" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M1.5 5.5L8 9.5L14.5 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                Email us
+              </a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeekD6VoQFlO7QCdew0rUeE_NM6pRvVdLiqLHEkGiOEM8Hkhw/viewform?usp=dialog" class="btn btn-ghost-w btn-lg" target="_blank" rel="noopener noreferrer">
+                Order my site
+              </a>
+            </div>
+          </div>
+
+        </div><!-- /faq-groups -->
+      </div><!-- /faq-layout -->
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer" aria-label="Site footer">
+  <div class="container">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+      <div style="display:flex;align-items:center;gap:2rem;flex-wrap:wrap">
+        <a href="index.html" style="display:flex;align-items:center;gap:.5rem;font-family:var(--fd);font-size:1.125rem;color:#fff">
+          <div class="flogo-m" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M13 5.5C13 4.12 11.88 3 10.5 3H7.5C6.12 3 5 4.12 5 5.5C5 6.88 6.12 8 7.5 8H10.5C11.88 8 13 9.12 13 10.5C13 11.88 11.88 13 10.5 13H7.5C6.12 13 5 11.88 5 10.5" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          StudentSites
+        </a>
+        <nav style="display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap">
+          <a href="index.html#how" style="font-size:.875rem;color:rgba(255,255,255,.5);transition:color var(--dur-f)" onmouseover="this.style.color='rgba(255,255,255,.9)'" onmouseout="this.style.color='rgba(255,255,255,.5)'">How it works</a>
+          <a href="index.html#pricing" style="font-size:.875rem;color:rgba(255,255,255,.5);transition:color var(--dur-f)" onmouseover="this.style.color='rgba(255,255,255,.9)'" onmouseout="this.style.color='rgba(255,255,255,.5)'">Pricing</a>
+          <a href="faq.html" style="font-size:.875rem;color:rgba(255,255,255,.9)" aria-current="page">FAQ</a>
+          <a href="mailto:studentsitessupport@gmail.com" style="font-size:.875rem;color:rgba(255,255,255,.5);transition:color var(--dur-f)" onmouseover="this.style.color='rgba(255,255,255,.9)'" onmouseout="this.style.color='rgba(255,255,255,.5)'">Contact</a>
+        </nav>
+      </div>
+      <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+        <div class="fsoc">
+          <a href="https://www.instagram.com/studentsitesai/" class="fsoc-a" target="_blank" rel="noopener noreferrer" aria-label="StudentSites on Instagram"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="3" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="11.5" cy="4.5" r=".75" fill="currentColor"/></svg></a>
+          <a href="mailto:studentsitessupport@gmail.com" class="fsoc-a" aria-label="Email StudentSites"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1.5" y="3.5" width="13" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M1.5 5.5L8 9.5L14.5 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        </div>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.3)">© <span id="yr"></span> StudentSites</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Mobile nav
+  const burger = document.querySelector('.burger');
+  const mob = document.getElementById('mob-nav');
+  burger.addEventListener('click', () => {
+    const open = burger.getAttribute('aria-expanded') === 'true';
+    burger.setAttribute('aria-expanded', String(!open));
+    burger.setAttribute('aria-label', open ? 'Open navigation menu' : 'Close navigation menu');
+    mob.hidden = open;
+    mob.classList.toggle('open', !open);
+    document.body.style.overflow = open ? '' : 'hidden';
+  });
+  mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Open navigation menu');
+    mob.hidden = true;
+    mob.classList.remove('open');
+    document.body.style.overflow = '';
+  }));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') {
+      burger.setAttribute('aria-expanded', 'false');
+      mob.hidden = true;
+      mob.classList.remove('open');
+      document.body.style.overflow = '';
+      burger.focus();
+    }
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.ftrig').forEach(t => {
+    t.addEventListener('click', () => {
+      const open = t.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('.ftrig').forEach(o => {
+        o.setAttribute('aria-expanded', 'false');
+        document.getElementById(o.getAttribute('aria-controls')).hidden = true;
+      });
+      if (!open) {
+        t.setAttribute('aria-expanded', 'true');
+        document.getElementById(t.getAttribute('aria-controls')).hidden = false;
+      }
+    });
+  });
+
+  // Sidebar active link on scroll
+  const sections = document.querySelectorAll('.faq-groups section[id]');
+  const navLinks = document.querySelectorAll('.faq-nav-link');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector('.faq-nav-link[href="#' + e.target.id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -60% 0px' });
+  sections.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
