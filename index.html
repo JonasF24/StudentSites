@@ -203,33 +203,6 @@
     .f-t{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:.5rem}
     .f-d{font-size:.875rem;color:var(--ink-2);line-height:1.65}
 
-    /* Styles section */
-    .styles-sect{background:var(--ink);color:#fff}
-    .styles-sect .label{background:rgba(255,255,255,.08);color:rgba(255,255,255,.7)}
-    .styles-h{font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:400;line-height:1.15;color:#fff;margin-bottom:1rem}
-    .styles-h em{font-style:italic;color:rgba(255,255,255,.5)}
-    .styles-sub{font-size:1.125rem;color:rgba(255,255,255,.6);max-width:480px;margin-bottom:3rem;line-height:1.7}
-    .sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-    @media(max-width:768px){.sgrid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:480px){.sgrid{grid-template-columns:1fr}}
-    .scard{border-radius:var(--r-xl);overflow:hidden;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);transition:transform var(--dur-b) var(--ease),box-shadow var(--dur-b) var(--ease)}
-    .scard:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.3)}
-    .spre{height:130px;position:relative;overflow:hidden}
-    .t-ocean{background:linear-gradient(135deg,#0C4A6E,#0E7490,#06B6D4)}
-    .t-forest{background:linear-gradient(135deg,#14532D,#166534,#16A34A)}
-    .t-sunset{background:linear-gradient(135deg,#7C2D12,#C2410C,#F97316)}
-    .t-violet{background:linear-gradient(135deg,#2E1065,#4C1D95,#7C3AED)}
-    .t-rose{background:linear-gradient(135deg,#881337,#BE185D,#EC4899)}
-    .t-slate{background:linear-gradient(135deg,#0F172A,#1E293B,#334155)}
-    .spbar{position:absolute;top:10px;left:10px;right:10px;height:22px;background:rgba(255,255,255,.1);border-radius:4px;display:flex;align-items:center;padding:0 8px;gap:4px}
-    .sdot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4)}
-    .spcon{position:absolute;bottom:10px;left:10px;right:10px}
-    .spl{height:7px;border-radius:4px;background:rgba(255,255,255,.3);margin-bottom:4px}
-    .spls{height:6px;width:58%;border-radius:4px;background:rgba(255,255,255,.18)}
-    .sinfo{padding:1rem 1.25rem}
-    .s-n{font-size:.875rem;font-weight:700;color:#fff;margin-bottom:.25rem}
-    .s-t{font-size:.75rem;color:rgba(255,255,255,.5)}
-
     /* Testimonials */
     .test-sect{background:#fff}
     .test-hdr{text-align:center;max-width:480px;margin:0 auto 4rem}
@@ -300,6 +273,14 @@
     .fbot-links a{font-size:.875rem;color:rgba(255,255,255,.3);transition:color var(--dur-f)}
     .fbot-links a:hover{color:rgba(255,255,255,.7)}
 
+
+    /* Launch sale */
+    .sale-wrap{display:flex;align-items:baseline;gap:.75rem;flex-wrap:wrap;margin-bottom:.25rem}
+    .orig-price{font-size:1.5rem;font-weight:700;color:var(--ink-3);text-decoration:line-through;font-variant-numeric:tabular-nums}
+    .pcard.feat .orig-price{color:rgba(255,255,255,.4)}
+    .sale-badge{display:inline-flex;align-items:center;padding:.2rem .5rem;background:var(--accent);color:#fff;font-size:.7rem;font-weight:700;border-radius:var(--r-full);letter-spacing:.04em}
+    .pcard.feat .sale-badge{background:rgba(255,255,255,.2)}
+
     /* Reveal */
     .reveal{opacity:0;transform:translateY(20px);transition:opacity var(--dur-s) var(--ease),transform var(--dur-s) var(--ease)}
     .reveal.on{opacity:1;transform:translateY(0)}
@@ -336,8 +317,7 @@
       <ul class="nav-links" role="list">
         <li><a href="#how">How it works</a></li>
         <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#examples">Styles</a></li>
-        <li><a href="#faq">FAQ</a></li>
+        <li><a href="faq.html">FAQ</a></li>
       </ul>
       <div class="nav-act">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSeekD6VoQFlO7QCdew0rUeE_NM6pRvVdLiqLHEkGiOEM8Hkhw/viewform?usp=dialog" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Order my site</a>
@@ -349,11 +329,21 @@
   </div>
 </nav>
 
+<!-- LAUNCH SALE BANNER -->
+<div style="background:var(--accent);padding:.6rem 0;text-align:center" role="banner" aria-label="Launch sale announcement">
+  <div class="container">
+    <p style="font-size:.875rem;font-weight:600;color:#fff;display:flex;align-items:center;justify-content:center;gap:.75rem;flex-wrap:wrap">
+      <span style="background:rgba(0,0,0,.2);padding:.2rem .6rem;border-radius:var(--r-full);font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Launch Sale</span>
+      25% off all plans — limited time only.
+      <a href="#pricing" style="color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px">See prices →</a>
+    </p>
+  </div>
+</div>
+
 <nav id="mob-nav" class="mob" aria-label="Mobile navigation" hidden>
   <a href="#how">How it works</a>
   <a href="#pricing">Pricing</a>
-  <a href="#examples">Styles</a>
-  <a href="#faq">FAQ</a>
+  <a href="faq.html">FAQ</a>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSeekD6VoQFlO7QCdew0rUeE_NM6pRvVdLiqLHEkGiOEM8Hkhw/viewform?usp=dialog" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">Order my site</a>
 </nav>
 
@@ -467,13 +457,14 @@
     <div class="pricing-hdr reveal">
       <div class="label"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><circle cx="6" cy="6" r="4"/></svg>Pricing</div>
       <h2 id="pricing-h2" class="pricing-h">Simple, honest pricing</h2>
-      <p class="pricing-sub">No subscriptions. No hidden fees. You pay once, you own it.</p>
+      <p class="pricing-sub">No subscriptions. No hidden fees. You pay once, you own it.<br><strong style="color:var(--accent)">Launch sale — 25% off all plans.</strong></p>
     </div>
     <div class="pgrid stagger reveal" role="list">
       <article class="pcard" role="listitem">
         <p class="pp">Simple</p>
-        <div class="pprice"><span class="pcur" aria-hidden="true">$</span><span class="pamt" aria-label="50 dollars">50</span></div>
-        <p class="pps">one-time payment</p>
+        <div class="sale-wrap"><span class="orig-price" aria-label="Original price 50 dollars">$50</span><span class="sale-badge">25% off</span></div>
+        <div class="pprice"><span class="pcur" aria-hidden="true">$</span><span class="pamt" aria-label="38 dollars, sale price">38</span></div>
+        <p class="pps">one-time · launch sale</p>
         <p class="pdesc">A clean, focused first portfolio.</p>
         <div class="pdiv" aria-hidden="true"></div>
         <ul class="pfeats" role="list">
@@ -489,8 +480,9 @@
       <article class="pcard feat" role="listitem" aria-label="Recommended — most popular">
         <div class="feat-badge">Most popular</div>
         <p class="pp">Recommended</p>
-        <div class="pprice"><span class="pcur" aria-hidden="true">$</span><span class="pamt" aria-label="75 dollars">75</span></div>
-        <p class="pps">one-time payment</p>
+        <div class="sale-wrap"><span class="orig-price" aria-label="Original price 75 dollars">$75</span><span class="sale-badge">25% off</span></div>
+        <div class="pprice"><span class="pcur" aria-hidden="true">$</span><span class="pamt" aria-label="56 dollars, sale price">56</span></div>
+        <p class="pps">one-time · launch sale</p>
         <p class="pdesc">The most popular choice for college applications.</p>
         <div class="pdiv" aria-hidden="true"></div>
         <ul class="pfeats" role="list">
@@ -499,14 +491,15 @@
           <li class="pf"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>2 YouTube embeds</li>
           <li class="pf"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>5 revisions included</li>
           <li class="pf"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>GitHub Education Pack guide</li>
-          <li class="pf"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Formspree contact form</li>
+          <li class="pf"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Social &amp; email contact section</li>
         </ul>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSeekD6VoQFlO7QCdew0rUeE_NM6pRvVdLiqLHEkGiOEM8Hkhw/viewform?usp=dialog" class="btn btn-primary pcta" target="_blank" rel="noopener noreferrer">Order Recommended</a>
       </article>
       <article class="pcard" role="listitem">
         <p class="pp">Premium</p>
-        <div class="pprice"><span class="pcur" aria-hidden="true">$</span><span class="pamt" aria-label="99 dollars">99</span></div>
-        <p class="pps">one-time payment</p>
+        <div class="sale-wrap"><span class="orig-price" aria-label="Original price 99 dollars">$99</span><span class="sale-badge">25% off</span></div>
+        <div class="pprice"><span class="pcur" aria-hidden="true">$</span><span class="pamt" aria-label="74 dollars, sale price">74</span></div>
+        <p class="pps">one-time · launch sale</p>
         <p class="pdesc">Everything, for the most complete portfolio possible.</p>
         <div class="pdiv" aria-hidden="true"></div>
         <ul class="pfeats" role="list">
@@ -551,7 +544,7 @@
     <div class="fgrid stagger reveal" role="list">
       <article class="ftile" role="listitem"><div class="f-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="5" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M7 19H15M11 17V19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3 class="f-t">Mobile-responsive</h3><p class="f-d">Looks perfect on phones, tablets, and desktops. Tested at every screen size.</p></article>
       <article class="ftile" role="listitem"><div class="f-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3L13.5 8.5H19L14.5 12L16.5 18L11 14.5L5.5 18L7.5 12L3 8.5H8.5L11 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><h3 class="f-t">Free GitHub Pages hosting</h3><p class="f-d">Hosted at no cost. No server bills, no subscriptions, ever.</p></article>
-      <article class="ftile" role="listitem"><div class="f-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 11C3 7.13 6.13 4 10 4H12C15.87 4 19 7.13 19 11C19 14.87 15.87 18 12 18H10C6.13 18 3 14.87 3 11Z" stroke="currentColor" stroke-width="1.8"/><path d="M9 11L11 13L14 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3 class="f-t">Working contact form</h3><p class="f-d">Powered by Formspree — recruiters can email you directly from your site.</p></article>
+      <article class="ftile" role="listitem"><div class="f-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 11C3 7.13 6.13 4 10 4H12C15.87 4 19 7.13 19 11C19 14.87 15.87 18 12 18H10C6.13 18 3 14.87 3 11Z" stroke="currentColor" stroke-width="1.8"/><path d="M9 11L11 13L14 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3 class="f-t">Contact &amp; social section</h3><p class="f-d">A clean contact section with buttons linking to your email and all social profiles so recruiters can reach you instantly.</p></article>
       <article class="ftile" role="listitem"><div class="f-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 9V15C5 16.66 6.34 18 8 18H14C15.66 18 17 16.66 17 15V9M3 9H19M9 9V7C9 5.9 9.9 5 11 5C12.1 5 13 5.9 13 7V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3 class="f-t">You own the code</h3><p class="f-d">Clean HTML, CSS, JS files are yours to keep and publish however you want.</p></article>
       <article class="ftile" role="listitem"><div class="f-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.8"/><path d="M11 7V11L13.5 13.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3 class="f-t">3–5 day turnaround</h3><p class="f-d">Fast delivery so you're ready for application deadlines and internship seasons.</p></article>
       <article class="ftile" role="listitem"><div class="f-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 6H18M4 10H18M4 14H12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3 class="f-t">5 free revisions</h3><p class="f-d">Not happy with something? We'll fix it — up to 5 rounds of content changes.</p></article>
@@ -562,24 +555,6 @@
   </div>
 </section>
 
-<!-- STYLES -->
-<section id="examples" class="section styles-sect" aria-labelledby="styles-h2">
-  <div class="container">
-    <div class="reveal">
-      <div class="label"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><circle cx="6" cy="6" r="4"/></svg>6 style presets</div>
-      <h2 id="styles-h2" class="styles-h">Pick a vibe.<br><em>We do the rest.</em></h2>
-      <p class="styles-sub">Choose from 6 curated color themes, or tell us your colors and we'll build something custom on Recommended and Premium plans.</p>
-    </div>
-    <div class="sgrid stagger reveal" role="list">
-      <article class="scard" role="listitem"><div class="spre t-ocean" aria-hidden="true"><div class="spbar"><div class="sdot"></div><div class="sdot"></div><div class="sdot"></div></div><div class="spcon"><div class="spl"></div><div class="spls"></div></div></div><div class="sinfo"><p class="s-n">Ocean Blue</p><p class="s-t">Confident · Technical · Clean</p></div></article>
-      <article class="scard" role="listitem"><div class="spre t-forest" aria-hidden="true"><div class="spbar"><div class="sdot"></div><div class="sdot"></div><div class="sdot"></div></div><div class="spcon"><div class="spl"></div><div class="spls"></div></div></div><div class="sinfo"><p class="s-n">Forest Green</p><p class="s-t">Natural · Grounded · Calm</p></div></article>
-      <article class="scard" role="listitem"><div class="spre t-sunset" aria-hidden="true"><div class="spbar"><div class="sdot"></div><div class="sdot"></div><div class="sdot"></div></div><div class="spcon"><div class="spl"></div><div class="spls"></div></div></div><div class="sinfo"><p class="s-n">Sunset Orange</p><p class="s-t">Bold · Creative · Energetic</p></div></article>
-      <article class="scard" role="listitem"><div class="spre t-violet" aria-hidden="true"><div class="spbar"><div class="sdot"></div><div class="sdot"></div><div class="sdot"></div></div><div class="spcon"><div class="spl"></div><div class="spls"></div></div></div><div class="sinfo"><p class="s-n">Deep Violet</p><p class="s-t">Creative · Ambitious · Modern</p></div></article>
-      <article class="scard" role="listitem"><div class="spre t-rose" aria-hidden="true"><div class="spbar"><div class="sdot"></div><div class="sdot"></div><div class="sdot"></div></div><div class="spcon"><div class="spl"></div><div class="spls"></div></div></div><div class="sinfo"><p class="s-n">Rose Pink</p><p class="s-t">Warm · Expressive · Vibrant</p></div></article>
-      <article class="scard" role="listitem"><div class="spre t-slate" aria-hidden="true"><div class="spbar"><div class="sdot"></div><div class="sdot"></div><div class="sdot"></div></div><div class="spcon"><div class="spl"></div><div class="spls"></div></div></div><div class="sinfo"><p class="s-n">Midnight Slate</p><p class="s-t">Sophisticated · Sharp · Dark</p></div></article>
-    </div>
-  </div>
-</section>
 
 <!-- TESTIMONIALS -->
 <section class="section test-sect" aria-labelledby="test-h2">
@@ -608,30 +583,25 @@
   </div>
 </section>
 
-<!-- FAQ -->
-<section id="faq" class="section faq-sect" aria-labelledby="faq-h2">
+<!-- FAQ TEASER -->
+<section class="section" style="background:var(--surface);padding:3rem 0" aria-label="FAQ teaser">
   <div class="container">
-    <div class="faq-grid">
-      <div class="reveal">
-        <div class="label"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><circle cx="6" cy="6" r="4"/></svg>FAQ</div>
-        <h2 id="faq-h2" class="faq-h">Questions,<br><em>answered</em></h2>
-        <p class="faq-sub">Still not sure? Reach out — we respond within one business day.</p>
-        <div class="faq-cbox">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" style="color:var(--primary);flex-shrink:0"><path d="M3 4.5H15C15.83 4.5 16.5 5.17 16.5 6V12C16.5 12.83 15.83 13.5 15 13.5H3C2.17 13.5 1.5 12.83 1.5 12V6C1.5 5.17 2.17 4.5 3 4.5Z" stroke="currentColor" stroke-width="1.5"/><path d="M1.5 6L9 9.75L16.5 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-          Email us at <a href="mailto:studentsitessupport@gmail.com">studentsitessupport@gmail.com</a>
-        </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;padding:2rem 2.5rem;background:#fff;border:1px solid var(--border);border-radius:var(--r-2xl)">
+      <div>
+        <p style="font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.5rem">Got questions?</p>
+        <p style="font-family:var(--fd);font-size:1.5rem;font-weight:400;color:var(--ink);line-height:1.2">We've answered everything<br><em style="font-style:italic;color:var(--primary)">on our FAQ page.</em></p>
       </div>
-      <div class="flist reveal">
-        <div class="fitem"><button class="ftrig" aria-expanded="false" aria-controls="fp1" id="fb1">How do I get my site after ordering?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div id="fp1" class="fpanel" hidden role="region" aria-labelledby="fb1">After you fill out the order form, we build your site and email you the finished files (HTML, CSS, JS) within 3–5 business days. You also get a step-by-step deployment guide for GitHub Pages.</div></div>
-        <div class="fitem"><button class="ftrig" aria-expanded="false" aria-controls="fp2" id="fb2">Do I need to know how to code?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div id="fp2" class="fpanel" hidden role="region" aria-labelledby="fb2">Not at all. You fill out a Google Form with your information and style preferences, and we handle everything technical. The deployment guide is step-by-step with screenshots.</div></div>
-        <div class="fitem"><button class="ftrig" aria-expanded="false" aria-controls="fp3" id="fb3">What counts as a "revision"?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div id="fp3" class="fpanel" hidden role="region" aria-labelledby="fb3">A revision is any change to existing content — updating text, swapping a project description, changing a color, fixing a typo. Adding entirely new pages is not included but can be quoted separately.</div></div>
-        <div class="fitem"><button class="ftrig" aria-expanded="false" aria-controls="fp4" id="fb4">Can I get a custom domain instead of github.io?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div id="fp4" class="fpanel" hidden role="region" aria-labelledby="fb4">Yes. Recommended and Premium plans include a GitHub Education Pack guide (free .me domain with a student email) and a custom domain setup guide for Namecheap / Cloudflare (~$10–15/yr). We don't resell domains but walk you through every step.</div></div>
-        <div class="fitem"><button class="ftrig" aria-expanded="false" aria-controls="fp5" id="fb5">How does the quarterly update add-on work?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div id="fp5" class="fpanel" hidden role="region" aria-labelledby="fb5">Four times a year (January, April, July, October) we'll reach out to collect your updates — new projects, achievements, or bio changes. Content changes only; full redesigns are not included.</div></div>
-        <div class="fitem"><button class="ftrig" aria-expanded="false" aria-controls="fp6" id="fb6">How do I pay?<svg class="fchev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div id="fp6" class="fpanel" hidden role="region" aria-labelledby="fb6">After you submit the order form, we'll send a payment link via email. We start building once payment is confirmed. We accept all major cards through Stripe.</div></div>
+      <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+        <a href="faq.html" class="btn btn-primary btn-lg">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          View all FAQs
+        </a>
+        <a href="mailto:studentsitessupport@gmail.com" class="btn btn-outline btn-lg">Email us</a>
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- CTA -->
 <section class="cta-sect" aria-labelledby="cta-h2">
@@ -639,7 +609,7 @@
   <div class="container">
     <div class="cta-in">
       <h2 id="cta-h2" class="cta-h">Your portfolio<br><em>is one form away</em></h2>
-      <p class="cta-sub">Fill out the order form, and we'll have your custom site ready in 3–5 business days. Starting at $50.</p>
+      <p class="cta-sub">Fill out the order form, and we'll have your custom site ready in 3–5 business days. Launch sale — from $38.</p>
       <div class="cta-btns">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSeekD6VoQFlO7QCdew0rUeE_NM6pRvVdLiqLHEkGiOEM8Hkhw/viewform?usp=dialog" class="btn btn-white btn-lg" target="_blank" rel="noopener noreferrer">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -672,17 +642,14 @@
       <nav aria-label="Pricing links">
         <p class="fcol-t">Pricing</p>
         <ul class="flinks" role="list">
-          <li><a href="#pricing">Simple — $50</a></li>
-          <li><a href="#pricing">Recommended — $75</a></li>
-          <li><a href="#pricing">Premium — $99</a></li>
-          <li><a href="#pricing">Quarterly update — $20</a></li>
+          <li><a href="#pricing">View packages</a></li>
         </ul>
       </nav>
       <nav aria-label="Company links">
         <p class="fcol-t">Company</p>
         <ul class="flinks" role="list">
           <li><a href="#how">How it works</a></li>
-          <li><a href="#examples">Style examples</a></li>
+          
           <li><a href="#faq">FAQ</a></li>
           <li><a href="mailto:studentsitessupport@gmail.com">Contact us</a></li>
           <li><a href="https://www.instagram.com/studentsitesai/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
@@ -700,6 +667,7 @@
 </footer>
 
 <script>
+  // Year
   document.getElementById('yr').textContent = new Date().getFullYear();
 
   // Mobile nav
@@ -731,31 +699,44 @@
     }
   });
 
-  // FAQ accordion
-  document.querySelectorAll('.ftrig').forEach(t => {
-    t.addEventListener('click', () => {
-      const open = t.getAttribute('aria-expanded') === 'true';
-      document.querySelectorAll('.ftrig').forEach(o => {
-        o.setAttribute('aria-expanded', 'false');
-        document.getElementById(o.getAttribute('aria-controls')).hidden = true;
+  // Reveal on scroll (IntersectionObserver)
+  if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('on');
+          obs.unobserve(e.target);
+        }
       });
-      if (!open) {
-        t.setAttribute('aria-expanded', 'true');
-        document.getElementById(t.getAttribute('aria-controls')).hidden = false;
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  } else {
+    // Reduced motion — show everything immediately
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('on'));
+  }
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      // Close all
+      document.querySelectorAll('.faq-q').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        b.nextElementSibling.hidden = true;
+      });
+      // Open clicked (unless it was already open)
+      if (!expanded) {
+        btn.setAttribute('aria-expanded', 'true');
+        btn.nextElementSibling.hidden = false;
       }
     });
   });
 
-  // Scroll reveal
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!reduced) {
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-  } else {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('on'));
-  }
+  // Sticky nav shadow on scroll
+  const nav = document.querySelector('.nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
 </script>
 </body>
 </html>
