@@ -21,10 +21,11 @@ import { sql } from "drizzle-orm";
  */
 export const users = mysqlTable("users", {
   id: int("id").autoincrement().primaryKey(),
-  openId: varchar("openId", { length: 64 }).notNull().unique(),
+  openId: varchar("openId", { length: 64 }).unique(), // Optional for OAuth
+  email: varchar("email", { length: 320 }).notNull().unique(),
   name: text("name"),
-  email: varchar("email", { length: 320 }),
-  loginMethod: varchar("loginMethod", { length: 64 }),
+  password: varchar("password", { length: 255 }), // For email/password auth
+  loginMethod: varchar("loginMethod", { length: 64 }).default("email"), // 'email' or 'oauth'
   role: mysqlEnum("role", ["user", "admin"]).default("user").notNull(),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),

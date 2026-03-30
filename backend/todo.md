@@ -77,3 +77,15 @@
 - [ ] Create initial checkpoint
 - [ ] Document API endpoints
 - [ ] Set up production environment variables
+
+## Phase 13: Email-Based Authentication
+- [x] Add password field to users table
+- [x] Implement signup API with email/password
+- [x] Implement login API with email/password
+- [x] Add password hashing (bcrypt)
+- [x] Create signup page UI
+- [x] Create login page UI
+- [x] Implement admin access for specific email (jonas@studentsites.com)
+- [x] Update home page with auth navigation
+- [ ] Test complete auth flow
+- [ ] Commit to GitHub
