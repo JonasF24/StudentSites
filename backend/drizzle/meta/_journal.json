@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1774842130163,
+      "tag": "0000_skinny_gateway",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1774842288849,
+      "tag": "0001_jazzy_korath",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1774842356331,
+      "tag": "0002_kind_wither",
+      "breakpoints": true
+    }
+  ]
+}
