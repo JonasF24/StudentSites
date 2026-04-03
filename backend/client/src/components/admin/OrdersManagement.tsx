@@ -95,12 +95,12 @@ export default function OrdersManagement() {
           <CardTitle>Filter Orders</CardTitle>
         </CardHeader>
         <CardContent>
-          <Select value={selectedStatus || ""} onValueChange={(value) => setSelectedStatus(value || undefined)}>
+          <Select value={selectedStatus || "all"} onValueChange={(value) => setSelectedStatus(value === "all" ? undefined : value)}>
             <SelectTrigger className="w-full md:w-64">
               <SelectValue placeholder="Filter by status..." />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Orders</SelectItem>
+              <SelectItem value="all">All Orders</SelectItem>
               <SelectItem value="pending_payment">Pending Payment</SelectItem>
               <SelectItem value="in_progress">In Progress</SelectItem>
               <SelectItem value="delivered">Delivered</SelectItem>
