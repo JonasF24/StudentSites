@@ -1,4 +1,3 @@
-import { z } from "zod";
 import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
@@ -8,7 +7,7 @@ import { paymentsRouter } from "./routers/payments";
 import { revisionsRouter } from "./routers/revisions";
 import { filesRouter } from "./routers/files";
 import { analyticsRouter } from "./routers/analytics";
-import { signupUser, loginUser, signupSchema, loginSchema, isAdminEmail } from "./auth";
+import { signupUser, loginUser, signupSchema, loginSchema } from "./auth";
 import { TRPCError } from "@trpc/server";
 
 export const appRouter = router({
@@ -56,13 +55,6 @@ export const appRouter = router({
             message,
           });
         }
-      }),
-    isAdmin: publicProcedure
-      .input(z.object({ email: z.string().email() }))
-      .query(async ({ input }) => {
-        return {
-          isAdmin: isAdminEmail(input.email),
-        };
       }),
   }),
   orders: ordersRouter,

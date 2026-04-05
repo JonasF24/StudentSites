@@ -4,19 +4,24 @@ import { getDb } from "./db";
 import { users } from "../drizzle/schema";
 import { eq } from "drizzle-orm";
 
+// Use generic test admin emails controlled by the test environment
+const TEST_ADMIN_EMAIL1 = "test-admin1@example.com";
+const TEST_ADMIN_EMAIL2 = "test-admin2@example.com";
+
 describe("Authentication System", () => {
   const testEmail = "test@example.com";
-  const adminEmail1 = "studentsitessupport@gmail.com";
-  const adminEmail2 = "j9414104@gmail.com";
   const testPassword = "testPassword123";
 
   beforeAll(async () => {
+    // Set ADMIN_EMAILS env var for testing
+    process.env.ADMIN_EMAILS = `${TEST_ADMIN_EMAIL1},${TEST_ADMIN_EMAIL2}`;
+
     // Clean up test user if it exists
     const db = await getDb();
     if (db) {
       await db.delete(users).where(eq(users.email, testEmail));
-      await db.delete(users).where(eq(users.email, adminEmail1));
-      await db.delete(users).where(eq(users.email, adminEmail2));
+      await db.delete(users).where(eq(users.email, TEST_ADMIN_EMAIL1));
+      await db.delete(users).where(eq(users.email, TEST_ADMIN_EMAIL2));
     }
   });
 
@@ -25,21 +30,22 @@ describe("Authentication System", () => {
     const db = await getDb();
     if (db) {
       await db.delete(users).where(eq(users.email, testEmail));
-      await db.delete(users).where(eq(users.email, adminEmail1));
-      await db.delete(users).where(eq(users.email, adminEmail2));
+      await db.delete(users).where(eq(users.email, TEST_ADMIN_EMAIL1));
+      await db.delete(users).where(eq(users.email, TEST_ADMIN_EMAIL2));
     }
+    delete process.env.ADMIN_EMAILS;
   });
 
   describe("isAdminEmail", () => {
     it("should identify admin emails correctly", () => {
-      expect(isAdminEmail(adminEmail1)).toBe(true);
-      expect(isAdminEmail(adminEmail2)).toBe(true);
+      expect(isAdminEmail(TEST_ADMIN_EMAIL1)).toBe(true);
+      expect(isAdminEmail(TEST_ADMIN_EMAIL2)).toBe(true);
       expect(isAdminEmail("user@example.com")).toBe(false);
     });
 
     it("should be case-insensitive", () => {
-      expect(isAdminEmail(adminEmail1.toUpperCase())).toBe(true);
-      expect(isAdminEmail(adminEmail2.toUpperCase())).toBe(true);
+      expect(isAdminEmail(TEST_ADMIN_EMAIL1.toUpperCase())).toBe(true);
+      expect(isAdminEmail(TEST_ADMIN_EMAIL2.toUpperCase())).toBe(true);
     });
   });
 
@@ -73,8 +79,8 @@ describe("Authentication System", () => {
     });
 
     it("should create an admin account for admin email", async () => {
-      const result = await signupUser(adminEmail1, testPassword, "Admin User");
-      expect(result.email).toBe(adminEmail1);
+      const result = await signupUser(TEST_ADMIN_EMAIL1, testPassword, "Admin User");
+      expect(result.email).toBe(TEST_ADMIN_EMAIL1);
       expect(result.role).toBe("admin");
     });
 
@@ -141,7 +147,7 @@ describe("Authentication System", () => {
 
   describe("Admin Access", () => {
     it("should grant admin role to first admin email on signup", async () => {
-      const result = await signupUser(adminEmail2, testPassword, "Admin 2");
+      const result = await signupUser(TEST_ADMIN_EMAIL2, testPassword, "Admin 2");
       expect(result.role).toBe("admin");
     });
 

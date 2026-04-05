@@ -1,4 +1,3 @@
-import { z } from "zod";
 import { publicProcedure, router } from "../_core/trpc";
 import { signupUser, loginUser, signupSchema, loginSchema } from "../auth";
 import { TRPCError } from "@trpc/server";
@@ -44,17 +43,5 @@ export const authRouter = router({
           message,
         });
       }
-    }),
-
-  /**
-   * Check if email is admin
-   */
-  isAdmin: publicProcedure
-    .input(z.object({ email: z.string().email() }))
-    .query(async ({ input }) => {
-      const adminEmail = process.env.ADMIN_EMAIL || "jonas@studentsites.com";
-      return {
-        isAdmin: input.email.toLowerCase() === adminEmail.toLowerCase(),
-      };
     }),
 });
