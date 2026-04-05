@@ -4,16 +4,20 @@ import { getDb, getUserByOpenId } from "./db";
 import { users } from "../drizzle/schema";
 import { eq } from "drizzle-orm";
 
-const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || "studentsitessupport@gmail.com,j9414104@gmail.com")
-  .split(",")
-  .map((email) => email.trim().toLowerCase());
 const SALT_ROUNDS = 10;
+
+function getAdminEmails(): string[] {
+  return (process.env.ADMIN_EMAILS || "")
+    .split(",")
+    .map((e) => e.trim().toLowerCase())
+    .filter(Boolean);
+}
 
 /**
  * Check if an email is an admin email
  */
 export function isAdminEmail(email: string): boolean {
-  return ADMIN_EMAILS.includes(email.toLowerCase());
+  return getAdminEmails().includes(email.toLowerCase());
 }
 
 /**
